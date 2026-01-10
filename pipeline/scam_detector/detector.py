@@ -2,7 +2,7 @@ from typing import List, Dict, Any
 from .executor import LLMExecutor
 from .parser import OutputParser
 from .builder import build_prompt
-from utils import get_logger
+from app_utils import get_logger
 
 logger = get_logger(__name__)
 
@@ -17,7 +17,7 @@ class ScamDetector:
     def detect(self, message: str) -> Dict[str, Any]:
         logger.info("Started scam detection for input message.")
         try:
-            prompt =build_prompt(message, self.startegy)
+            prompt =build_prompt(message, self.strategy)
             raw_response = self.executor.execute(prompt)
             parsed_result = self.parser.parse_llm_output(raw_response)
 
