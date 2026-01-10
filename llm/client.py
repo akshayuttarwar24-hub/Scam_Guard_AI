@@ -10,7 +10,6 @@ class LLMClient:
         self.model_name = model_name
         self.max_retries = max_retries
         self.retry_delay = retry_delay
-        print(f"API Key: {GEMINI_API_KEY}")
         self.client = genai.Client(api_key=GEMINI_API_KEY)
         logger.info(f"LLMClient initialized with model: {self.model_name}")
 
